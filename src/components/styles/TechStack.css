@@ -1,0 +1,202 @@
+/* ============================
+   Skill Grid — Categorized interactive grid
+   ============================ */
+
+.skill-grid-section {
+  position: relative;
+  width: 94%;
+  max-width: 1400px;
+  margin: 60px auto 0;
+  padding-bottom: 120px;
+}
+
+.skill-grid-section h3 {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 50px;
+}
+
+/* Category row */
+.skill-category {
+  margin-bottom: 40px;
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+
+.skill-category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  box-shadow: 0 0 6px var(--accentColor), 0 0 12px var(--accentColor);
+  flex-shrink: 0;
+}
+
+.skill-category-header h4 {
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* Skills container */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Individual skill pill */
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: default;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--pill-x, 50%) var(--pill-y, 50%),
+    rgba(0, 243, 255, 0.12) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.skill-pill:hover::before {
+  opacity: 1;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 243, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 243, 255, 0.1),
+    0 0 40px rgba(0, 243, 255, 0.05);
+}
+
+.skill-pill-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: -0.3px;
+}
+
+.skill-pill-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.skill-pill:hover .skill-pill-name {
+  color: #fff;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+
+@media only screen and (max-width: 1400px) {
+  .skill-grid-section {
+    width: 92%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .skill-grid-section {
+    width: 90%;
+    margin-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  .skill-grid-section h3 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+  }
+
+  .skill-category {
+    margin-bottom: 30px;
+  }
+
+  .skill-pills {
+    gap: 10px;
+  }
+
+  .skill-pill {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .skill-pill-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .skill-pill-name {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .skill-grid-section {
+    width: 95%;
+    margin-top: 30px;
+    padding-bottom: 60px;
+  }
+
+  .skill-grid-section h3 {
+    font-size: 13px;
+  }
+
+  .skill-category-header h4 {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .skill-pill {
+    padding: 7px 14px;
+  }
+
+  .skill-pill-name {
+    font-size: 12px;
+  }
+}
